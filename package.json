@@ -1,0 +1,14 @@
+{
+  "name": "Dup4.Index",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Dup4/Dup4.Index.git",
+  "author": "Dup4 <38343778+Dup4@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-html-minifier": "^0.1.8"
+  }
+}
