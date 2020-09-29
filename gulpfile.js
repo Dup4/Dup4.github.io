@@ -8,14 +8,6 @@ function cleanFile(source) {
                .pipe(clean({force: true}));
 }
 
-function cleanBuild() {
-    return (
-        cleanFile(["../npmcdn/*.js", "../npmcdn/*.html", "../npmcdn/*.css"]),
-        cleanFile("./pc/dist/*"),
-        cleanFile("./mobile/*")
-    );
-}
-
 function htmlMin(source, destion) {
 	return gulp.src(source)
 		.pipe(htmlmin({
@@ -38,7 +30,6 @@ function gao() {
     );
 }
 
-exports.cleanBuild = cleanBuild;
 exports.gao = gao;
 exports.default = gulp.series(gao);
 
