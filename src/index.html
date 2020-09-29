@@ -151,19 +151,28 @@
   </p>
 
   <div class="footer">
-    copyright ©
-    <a id="host" href="#">Dup4</a>
-	2020
+	<div id="footer-info">
+		Copyright © 2020, All rights reserved. @Dup4.
+	</div>
 	<div id="beian" style="display:none;">
-		<br/>
 		<a href="http://www.beian.miit.gov.cn/">浙ICP备20011170号-3</a>
 	</div>
   </div>
 
 <script>
 	var loc = document.location.hostname.split(".").pop() || "cn";
-	document.getElementById("host").href = document.location.hostname;
 	document.getElementById("blog-host").href = ["https://blog", "dup4", loc].join(".");
+	if (loc === "cn") {
+		document.getElementById("beian").style.display = "";
+	}
+	function getYear(startYear) {
+		var CurYear = (new Date()).getFullYear();
+		if (parseInt(CurYear) > parseInt(startYear)) {
+			CurYear = "2020-" + CurYear;
+		}
+		return CurYear;
+	}
+	document.getElementById("footer-info").innerHTML = "Copyright © " + getYear(2020) + ", All rights reserved. @Dup4.";
 </script>
 </body>
 </html>
