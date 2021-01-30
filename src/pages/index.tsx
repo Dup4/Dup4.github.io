@@ -13,6 +13,7 @@ function getYear(startYear: number) {
 function getBeian(hostname: string) {
     const beianDict = {
         'dup4.cn': '浙ICP备20011170号-3',
+        'dup4.top': '浙ICP备20011170号',
     };
     if (Object.keys(beianDict).indexOf(hostname) > -1) {
         return (
