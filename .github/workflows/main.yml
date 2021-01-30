@@ -45,6 +45,19 @@ jobs:
           FOLDER: dist # The folder the action should deploy.
           CLEAN: true # Automatically remove deleted files from the deploy branch
 
+      - name: Create Release # 创建Release，可以在仓库看到一个个版本
+        id: create_release
+        uses: actions/create-release@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+          VERSION_ID: ${{ steps.get-version-id.outputs.version-id }}
+        with:
+          commitish: gh-pages
+          tag_name: ${{ env.VERSION_ID }}
+          release_name: Release ${{ env.VERSION_ID }}
+          draft: false # 是否是草稿
+          prerelease: false # 是否是预发布
+
       - name: Deploy
         uses: appleboy/ssh-action@master # 使用ssh链接服务器
         with:
