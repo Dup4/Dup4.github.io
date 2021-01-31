@@ -35,7 +35,11 @@ jobs:
           sed -i "s|baidu: ''|baidu: '${{ secrets.BAIDU_ANALYTICS_ID }}'|" config.ts 
           npm install
           npm run build
-          gulp
+
+      - name: Minify HTML
+        uses: Dup4/minify-html-action@v1
+        with:
+          src: './dist/index.html'
 
       - name: Release 
         uses: JamesIves/github-pages-deploy-action@3.6.2
