@@ -1,6 +1,6 @@
 {
   "name": "dup4.github.io",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
   "scripts": {
     "start": "umi dev",
