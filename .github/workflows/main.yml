@@ -37,10 +37,9 @@ jobs:
           npm run build
 
       - name: Minify HTML
-        uses: Dup4/minify-html-action@v5
+        uses: Dup4/minify-html-action@v7
         with:
           src: './dist/index.html'
-          dist: './dist/index.html'
 
       - name: Release 
         uses: JamesIves/github-pages-deploy-action@3.6.2
