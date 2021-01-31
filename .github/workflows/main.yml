@@ -37,7 +37,7 @@ jobs:
           npm run build
 
       - name: Minify HTML
-        uses: Dup4/minify-html-action@v2
+        uses: Dup4/minify-html-action@v3
         with:
           src: './dist/index.html'
 
