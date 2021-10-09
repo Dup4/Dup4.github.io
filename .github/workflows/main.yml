@@ -31,17 +31,17 @@ jobs:
           VERSION_ID: ${{ steps.get-version-id.outputs.version-id }}
         run: |
           sed -i "s|publicPath: '/'|publicPath: '//cdn.jsdelivr.net/gh/Dup4/Dup4.github.io@${{ env.VERSION_ID }}/'|" config.ts
-          sed -i "s|favicon: '/favicon.png'|favicon: '//cdn.jsdelivr.net/gh/Dup4/Dup4.github.io@${{ env.VERSION_ID }}/favicon.png'|" config.ts 
-          sed -i "s|baidu: ''|baidu: '${{ secrets.BAIDU_ANALYTICS_ID }}'|" config.ts 
+          sed -i "s|favicon: '/favicon.png'|favicon: '//cdn.jsdelivr.net/gh/Dup4/Dup4.github.io@${{ env.VERSION_ID }}/favicon.png'|" config.ts
+          sed -i "s|baidu: ''|baidu: '${{ secrets.BAIDU_ANALYTICS_ID }}'|" config.ts
           npm install
           npm run build
 
       - name: Minify HTML
-        uses: Dup4/minify-html-action@v7
+        uses: Dup4/minify-html-action@v9
         with:
           src: './dist/index.html'
 
-      - name: Release 
+      - name: Release
         uses: JamesIves/github-pages-deploy-action@3.6.2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -53,7 +53,7 @@ jobs:
         id: create_release
         uses: actions/create-release@main
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VERSION_ID: ${{ steps.get-version-id.outputs.version-id }}
         with:
           commitish: gh-pages
