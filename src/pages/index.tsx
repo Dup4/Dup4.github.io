@@ -14,13 +14,12 @@ function getBeian(hostname: string) {
     const beianDict = {
         'dup4.cn': '浙ICP备20011170号',
         'www.dup4.cn': '浙ICP备20011170号',
+        'www.wi-ki.top': '浙ICP备20011170号',
     };
     if (Object.keys(beianDict).indexOf(hostname) > -1) {
         return (
             <div>
-                <a href="http://beian.miit.gov.cn/">
-                    {beianDict[hostname]}
-                </a>
+                <a href="http://beian.miit.gov.cn/">{beianDict[hostname]}</a>
             </div>
         );
     } else {
